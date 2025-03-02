@@ -1,0 +1,55 @@
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.dashboardPage {
+  .progress-bar-setup-guide {
+    height: 4px;
+    width: 100%;
+    position: relative;
+    border-radius: 4px;
+    margin-top: 10px;
+    width: 100%;
+    background: #29845a;
+    border-radius: 4px;
+  }
+
+  .avatarIcon {
+    .Polaris-Avatar.Polaris-Avatar--imageHasLoaded {
+      background: transparent;
+      border-radius: 50%;
+      width: 2.5rem;
+      margin-left: -1rem;
+      border: 3px solid #fff;
+    }
+    .Polaris-Avatar.Polaris-Avatar--imageHasLoaded:first-child{
+      margin-left: 0 !important;
+    }
+  }
+
+  .statContainer{
+    .Polaris-ShadowBevel{
+      flex: 1;
+    }
+  }
+}
+
+.customizeReviewListSection{
+  .Polaris-Connected__Item--primary{
+    margin-top: 4px;
+  }
+  .Polaris-Text--root{
+    margin-bottom: 4px !important;
+  }
+  .starIconWrapper{
+    span{
+      width: 1.4rem !important;
+      margin: 0 !important;
+      height: auto !important;
+    }
+  }
+}
