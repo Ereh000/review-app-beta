@@ -34,6 +34,7 @@ details > summary::-webkit-details-marker {
   .statContainer{
     .Polaris-ShadowBevel{
       flex: 1;
+      
     }
   }
 }
@@ -50,6 +51,16 @@ details > summary::-webkit-details-marker {
       width: 1.4rem !important;
       margin: 0 !important;
       height: auto !important;
+    }
+  }
+}
+
+.ImportReviewSection{
+  .rowWrapper{
+    .Polaris-DataTable__TableRow{
+      th{
+        text-align: left !important;
+      }
     }
   }
 }
