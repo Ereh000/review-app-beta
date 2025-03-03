@@ -1,0 +1,64 @@
+<section>
+  <div class="customer-reviews">
+    <h2>Customer Reviews</h2>
+    <div class="rating">
+      <span class="rating-value">5.0</span>
+      <div class="stars">
+        <i class="star"></i>
+        <i class="star"></i>
+        <i class="star"></i>
+        <i class="star"></i>
+        <i class="star"></i>
+      </div>
+      <span class="review-count">6 reviews</span>
+    </div>
+    <div class="ratings-breakdown">
+      <div class="rating-item">
+        <span class="rating-number">5</span>
+        <div class="progress-bar">
+          <div class="filled" style="width: 100%;"></div>
+        </div>
+        <span class="rating-count">6</span>
+      </div>
+      <div class="rating-item">
+        <span class="rating-number">4</span>
+        <div class="progress-bar">
+          <div class="filled" style="width: 0%;"></div>
+        </div>
+        <span class="rating-count">0</span>
+      </div>
+      <div class="rating-item">
+        <span class="rating-number">3</span>
+        <div class="progress-bar">
+          <div class="filled" style="width: 0%;"></div>
+        </div>
+        <span class="rating-count">0</span>
+      </div>
+      <div class="rating-item">
+        <span class="rating-number">2</span>
+        <div class="progress-bar">
+          <div class="filled" style="width: 0%;"></div>
+        </div>
+        <span class="rating-count">0</span>
+      </div>
+      <div class="rating-item">
+        <span class="rating-number">1</span>
+        <div class="progress-bar">
+          <div class="filled" style="width: 0%;"></div>
+        </div>
+        <span class="rating-count">0</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Star Rating",
+  "target": "section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "product", "autofill": true },
+    { "type": "color", "id": "colour", "label": "Star Colour", "default": "#ff0000" }
+  ]
+}
+{% endschema %}

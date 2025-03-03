@@ -33,7 +33,7 @@ export default function OrdersSection() {
 
   return (
     <div>
-      <Page>
+      <Page title='Collect Reviews'>
         <TabsNavigation selected={selected} setSelected={handleTabChange} />
         {selected === 0 ? (
           <LegacyCard>
@@ -173,21 +173,6 @@ export function EmailSettings() {
           />
         </Box>
       </Card>
-
-      {/* Sender Section */}
-      {/* <Card sectioned>
-        <Box display="flex" alignItems="center" justifyContent="space-between">
-          <Text variant="headingMd" fontWeight="bold">Sender</Text>
-          <Button icon={EditIcon} plain />
-        </Box>
-        <Box display="flex" alignItems="center" gap="3" paddingBlockStart="4">
-          <Avatar initials="A" />
-          <Box>
-            <Text fontWeight="bold">Anikard</Text>
-            <Text color="subdued">erehuchiha00@gmail.com</Text>
-          </Box>
-        </Box>
-      </Card> */}
     </Box>
   );
 }

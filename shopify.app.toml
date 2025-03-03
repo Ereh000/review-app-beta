@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "45f210e7b11de55fff0113bd59d43b0d"
-application_url = "https://angry-arbor-insertion-showtimes.trycloudflare.com"
+application_url = "https://herein-pure-arrange-lm.trycloudflare.com"
 embedded = true
 name = "review-app-beta"
 handle = "review-app-beta"
@@ -27,9 +27,9 @@ scopes = "write_products, read_themes"
 
 [auth]
 redirect_urls = [
-  "https://angry-arbor-insertion-showtimes.trycloudflare.com/auth/callback",
-  "https://angry-arbor-insertion-showtimes.trycloudflare.com/auth/shopify/callback",
-  "https://angry-arbor-insertion-showtimes.trycloudflare.com/api/auth/callback"
+  "https://herein-pure-arrange-lm.trycloudflare.com/auth/callback",
+  "https://herein-pure-arrange-lm.trycloudflare.com/auth/shopify/callback",
+  "https://herein-pure-arrange-lm.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
