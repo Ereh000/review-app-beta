@@ -1,35 +1,35 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "45f210e7b11de55fff0113bd59d43b0d"
-application_url = "https://herein-pure-arrange-lm.trycloudflare.com"
+application_url = "https://wheels-vanilla-poultry-southwest.trycloudflare.com"
 embedded = true
 name = "review-app-beta"
 handle = "review-app-beta"
 
 [build]
-include_config_on_deploy = true
 automatically_update_urls_on_dev = true
+include_config_on_deploy = true
 
 [webhooks]
 api_version = "2025-01"
 
   [[webhooks.subscriptions]]
-  topics = [ "app/uninstalled" ]
-  uri = "/webhooks/app/uninstalled"
-
-  [[webhooks.subscriptions]]
   topics = [ "app/scopes_update" ]
   uri = "/webhooks/app/scopes_update"
 
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products, read_themes"
+scopes = "read_themes,write_products"
 
 [auth]
 redirect_urls = [
-  "https://herein-pure-arrange-lm.trycloudflare.com/auth/callback",
-  "https://herein-pure-arrange-lm.trycloudflare.com/auth/shopify/callback",
-  "https://herein-pure-arrange-lm.trycloudflare.com/api/auth/callback"
+  "https://wheels-vanilla-poultry-southwest.trycloudflare.com/auth/callback",
+  "https://wheels-vanilla-poultry-southwest.trycloudflare.com/auth/shopify/callback",
+  "https://wheels-vanilla-poultry-southwest.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]

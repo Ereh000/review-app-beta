@@ -19,10 +19,8 @@ export default function MainOrdersPage() {
       <Card>
         {/* Tabs Navigation */}
         <TabsNavigation selected={selectedTab} setSelected={setSelectedTab} />
-
         {/* Filter Tabs */}
         <FilterTabs />
-
         {/* Empty State */}
         <EmptyStateComponent />
       </Card>

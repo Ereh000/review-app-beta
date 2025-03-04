@@ -28,7 +28,7 @@ import { useState } from "react";
 const ImportReview = () => {
   return (
     <section className="ImportReviewSection">
-      <Page title="Import Reviews">
+      <Page title="Import Reviews ">
         <AliExpressImportSection />
         <br />
         <UpgradeBanner />
@@ -124,7 +124,7 @@ export function ProductReviewTable() {
       reviews: "12 / 12",
       lastUpdated: "Jan 16, 2025",
     },
-    {
+    {  
       id: "2",
       title: "Binocular - B1.2 - 8x42",
       image: "https://via.placeholder.com/50", // Replace with actual image URL
