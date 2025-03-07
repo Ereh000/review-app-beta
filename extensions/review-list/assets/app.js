@@ -75,10 +75,10 @@ backButton.addEventListener('click', () => {
 
 // For demonstration, the Next button just closes the modal
 // (In a real app, you might go to the next step or something else)
-nextButton.addEventListener('click', () => {
-    alert('Next step clicked!');
-    modalOverlay.classList.remove('show');
-});
+// nextButton.addEventListener('click', () => {
+//     alert('Next step clicked!');
+//     modalOverlay.classList.remove('show');
+// });
 
 // Close modal if user clicks outside the modal
 modalOverlay.addEventListener('click', (e) => {

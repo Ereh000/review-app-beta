@@ -69,25 +69,33 @@
             <h2>Tell us your experience</h2>
           </div>
 
-          <!-- Modal body -->
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="reviewTitle">Title</label>
-              <input type="text" id="reviewTitle" placeholder="Enter your review title">
+          <form method="POST" id="reviewForm" class="form review-form">
+            <!-- Modal body -->
+            <div class="modal-body">
+              <input type="hidden" name="productId" value="123456789">
+              <div class="form-group">
+                <input type="text" name="title" id="reviewTitle" placeholder="Enter your review title">
+              </div>
+              <div class="form-group">
+                <input type="number" name="rating" placeholder="Enter rating between 1 to 5" min="1" max="5">
+              </div>
+              {% comment %} <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" name="image" accept="image/*">
+              </div> {% endcomment %}
+              <div class="form-group">
+                <input type="text" name="comment" placeholder="Write your thoughts here...">
+              </div>
             </div>
-            <div class="form-group">
-              <label for="reviewText">*Share your thoughts</label>
-              <textarea id="reviewText" placeholder="Write your thoughts here..."></textarea>
-            </div>
-          </div>
 
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <!-- Back arrow button (could close or go to previous step) -->
-            <button class="back-button" id="backButton">&#8592;</button>
-            <!-- Next button -->
-            <button class="next-button" id="nextButton">Next</button>
-          </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <!-- Back arrow button (could close or go to previous step) -->
+              <button class="back-button" id="backButton">&#8592;</button>
+              <!-- Next button -->
+              <button type="submit" class="next-button" id="nextButton">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -123,34 +131,40 @@
   </div>
   <div class="reviews-container">
     {% for i in (1..8) %}
-    <!-- Review Card 2 -->
-    <div class="review-card">
-      <img src="https://ae01.alicdn.com/kf/Af178844e661848679e5408600dabf73e8.jpg" alt="Product image"
-        class="product-image" width="" height="">
-      <div class="review-content">
-        <div class="star-rating">
-          <span>&#9733;</span>
-          <span>&#9733;</span>
-          <span>&#9733;</span>
-          <span>&#9733;</span>
-          <span>&#9733;</span>
-        </div>
-        <h3 class="reviewer-name">Heather Hoffman</h3>
-        <span class="review-date">Dec 03, 2024</span>
-        <p class="review-text">
-          Thank you the delivery is very late. The captain is a little long, but it is pretty. I'll see next time I
-          have an idea to order again Thank you!!!
-        </p>
-        <div class="helpful">
-          <span>Helpful? 0</span>
+      <!-- Review Card 2 -->
+      <div class="review-card">
+        {% if i < 5 %}
+          <img
+            src="https://ae01.alicdn.com/kf/Af178844e661848679e5408600dabf73e8.jpg"
+            alt="Product image"
+            class="product-image"
+            width=""
+            height=""
+          >
+        {% endif %}
+
+        <div class="review-content">
+          <div class="star-rating">
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+          </div>
+          <h3 class="reviewer-name">Heather Hoffman</h3>
+          <span class="review-date">Dec 03, 2024</span>
+          <p class="review-text">
+            Thank you the delivery is very late. The captain is a little long, but it is pretty. I'll see next time I
+            have an idea to order again Thank you!!!
+          </p>
+          <div class="helpful">
+            <span>Helpful? 0</span>
+          </div>
         </div>
       </div>
-    </div>
     {% endfor %}
   </div>
 </section>
-
-
 
 {% schema %}
 {
@@ -164,3 +178,69 @@
   "settings": [{ "label": "Color", "id": "color", "type": "color", "default": "#000000" }]
 }
 {% endschema %}
+
+<script>
+  let userForm = document.querySelector('.form.review-form');
+  userForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(userForm);
+    const dataa = Object.fromEntries(formData.entries());
+    console.log(dataa);
+
+    // const formData = new FormData(userForm);
+    const data = {
+      productId: formData.get('productId'),
+      title: formData.get('title'),
+      rating: formData.get('rating') || 5,
+      comment: formData.get('comment'),
+    };
+
+    fetch('https://zest-broke.myshopify.com/apps/review?shop=zest-broke.myshopify.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((data) => console.log('Response Data:', data))
+      .catch((error) => console.error('Error:', error));
+  });
+</script>
+
+<!--
+  <script>
+    let userForm = document.querySelector('.form.review-form');
+    userForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(userForm);
+
+      // Log all key/value pairs
+      for (let [key, value] of formData.entries()) {
+        console.log(key, value);
+      }
+
+      fetch('https://zest-broke.myshopify.com/apps/review?shop=zest-broke.myshopify.com', {
+        method: 'POST',
+        body: formData,
+        // Don't set Content-Type header when sending FormData
+        // browser will automatically set the correct multipart/form-data header
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log('Response Data:', data);
+          // Add success handling here
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          // Add error handling here
+        });
+    });
+  </script>
+-->
